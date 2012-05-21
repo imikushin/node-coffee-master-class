@@ -11,5 +11,8 @@ pids
 logs
 results
 
+.env
 node_modules
+build
+activate
 npm-debug.log

@@ -1,0 +1,22 @@
+{
+    "name": "master-class"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "coffee-script": "1.1.x"
+    , "express": "2.5.x"
+    , "connect": "2.3.0"
+    , "mongoose": "2.6.x"
+  }
+  , "scripts": {
+      "postinstall" : "make build"
+    , "start": "node build/app.js"
+  }
+  , "devDependencies": {
+      "supervisor": "*"
+  }
+  , "engines": {
+      "node": "0.6.17"
+    , "npm":  "1.1.22"
+  }
+}
