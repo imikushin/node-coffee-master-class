@@ -7,6 +7,7 @@
     , "express": "2.5.x"
     , "connect": "2.3.0"
     , "mongoose": "2.6.x"
+    , "bson":"*"
     , "mongodb":"1.0.2"
   }
   , "scripts": {

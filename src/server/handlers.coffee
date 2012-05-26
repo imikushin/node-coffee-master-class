@@ -3,18 +3,21 @@ mongodb  = require 'mongodb'
 
 exports.Index = (req,res)->
   res.json
-    mgs:'Привет Мир!'
+    mgs:'Привет, Мир!'
     error:null
 
 class Manager
 
-  db: new mongodb.Db(config.db.name, new mongodb.Server(config.db.host, config.db.port, config.db.user, config.db.pass, {}), native_parser: false)
+  db: new mongodb.Db(config.db.name, new mongodb.Server(config.db.host, config.db.port, {}), native_parser: false)
 
   constructor:->
     self = @
     @db.open (err,db)->
       self.db = db
-      console.log "Manager connected to #{config.db.host}:#{config.db.port}"
+      if config.db.user
+        db.authenticate config.db.user, config.db.pass, (err,result)->
+          throw err if err
+          console.log "Database manager connected to #{config.db.host}:#{config.db.port}, authenticate result is #{result}."
 
   id:(hex)-> new mongodb.ObjectID(hex)
 
