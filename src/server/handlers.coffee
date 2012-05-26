@@ -16,8 +16,9 @@ class Manager
       self.db = db
       if config.db.user
         db.authenticate config.db.user, config.db.pass, (err,result)->
+          console.log "Database manager executed authenticate to MongoDB at #{config.db.host}:#{config.db.port}, result is #{result}."
+          console.log "err is" + err
           throw err if err
-          console.log "Database manager connected to #{config.db.host}:#{config.db.port}, authenticate result is #{result}."
 
   id:(hex)-> new mongodb.ObjectID(hex)
 
