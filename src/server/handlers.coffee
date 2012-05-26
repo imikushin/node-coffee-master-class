@@ -8,7 +8,7 @@ exports.Index = (req,res)->
 
 class Manager
 
-  db: new mongodb.Db("master-class", new mongodb.Server(config.db.host, config.db.port, {}), native_parser: false)
+  db: new mongodb.Db(config.db.name, new mongodb.Server(config.db.host, config.db.port, config.db.user, config.db.pass, {}), native_parser: false)
 
   constructor:->
     self = @
